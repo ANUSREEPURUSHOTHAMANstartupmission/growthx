@@ -1,0 +1,241 @@
+---
+import { categories } from "../../../components/categories.js";
+import Navbarbottom from "../../../components/Navbar.svelte";
+import Layout from "../../../layouts/Layout.astro";
+
+/* ===============================
+   STATIC PATHS
+================================ */
+export function getStaticPaths() {
+  return categories.flatMap(cat =>
+    cat.problem_statements.map(ps => ({
+      params: {
+        categoryId: cat.id,
+        psId: ps.ps_id
+      }
+    }))
+  );
+}
+
+/* ===============================
+   PARAMS & DATA
+================================ */
+const { categoryId, psId } = Astro.params;
+
+const category = categories.find(c => c.id === categoryId);
+const problem = category?.problem_statements.find(
+  p => p.ps_id === psId
+);
+
+/* ===============================
+   SAFE VISIBILITY CHECKS
+================================ */
+const hasProblemStatement =
+  problem?.problem_statement?.some(
+    b => b.kind === "paragraph" && b.text?.trim()
+  );
+
+const hasCropFocus =
+  problem?.crop_focus?.[0]?.text?.trim();
+
+const hasInnovationOpportunities =
+  problem?.innovation_opportunities?.[0]?.items?.some(
+    i => i?.trim()
+  );
+
+const hasUseCase =
+  Array.isArray(problem?.use_case_example) &&
+  problem.use_case_example.length > 0;
+
+const hasCropgravity =
+  problem?.gravity?.[0]?.text?.trim();
+
+/* ===============================
+   APPLY NOW LINK
+================================ */
+const applyHref =
+  `https://forms.zohopublic.com/keralastartupmission/form/keralaformtemplate/formperma/Ft1XwC1KDGsSbE31FIjYnQqhAhA-o9hVx8zBziAwaCw` +
+  `?solution=${encodeURIComponent(category?.name ?? "")}` +
+  `&challenge=${encodeURIComponent(problem?.title ?? "")}` +
+  `&psid=${encodeURIComponent(psId ?? "")}`;
+---
+
+<Layout>
+  <Navbarbottom client:load />
+
+  <div class="service-area">
+    <div class="container">
+
+      {problem ? (
+        <article class="prose max-w-none">
+
+          {/* BACK LINK */}
+          <a
+            href={`/challenges/${categoryId}`}
+            class="text-blue-700 inline-block mb-6"
+          >
+            ← Back
+          </a>
+
+          {/* TITLE */}
+          <div class="pb-8">
+            <h1 class="text-green-800 text-2xl md:text-3xl font-bold">
+              {problem.title}
+            </h1>
+          </div>
+
+          <div class="flex flex-col gap-6">
+
+            {/* ===============================
+                LEFT CONTENT
+            ================================ */}
+            <div class=" w-full">
+
+              {/* PROBLEM STATEMENT */}
+              {hasProblemStatement && (
+                <>
+                  <h3 class="text-lg font-bold">
+                    Problem Statement
+                  </h3>
+
+                  {problem.problem_statement.map(b =>
+                    b.kind === "paragraph" && b.text?.trim()
+                      ? (
+                        <p class="text-black text-justify">
+                          {b.text}
+                        </p>
+                      )
+                      : null
+                  )}
+                </>
+              )}
+ 
+          <div class="grid md:grid-cols-2 grid-cols-1 gap-2 ">
+            {hasCropFocus && (
+             <div class="flex md:flex-row flex-col gap-1 pt-4">
+                     {/* CROP FOCUS */}
+              
+                <>
+                  <h3 class=" text-lg font-bold">
+                    Crop Focus : 
+                  </h3>
+                  <p class="text-black text-justify">
+                    {problem.crop_focus[0].text}
+                  </p>
+                </>
+             </div>
+              )}
+
+            {hasCropgravity && (
+              <div class="flex flex-row  gap-1 pt-4">
+                  {/* GRAVITY */}
+              
+                <>
+                  <h3 class="text-lg font-bold">
+                    Gravity : 
+                  </h3>
+                  <p class="text-black text-justify">
+                    {problem.gravity[0].text}
+                  </p>
+                </>
+              </div>
+              )}
+
+          </div>
+
+              {/* INNOVATION OPPORTUNITIES */}
+              {hasInnovationOpportunities && (
+                <>
+                  <h3 class="pt-4 pb-2 text-lg font-bold">
+                    Innovation Opportunities
+                  </h3>
+
+                  <ul class="text-black text-justify list-disc ps-5">
+                    {problem.innovation_opportunities[0].items
+                      .filter(i => i?.trim())
+                      .map(i => (
+                        <li class="list-disc py-1">{i}</li>
+                      ))}
+                  </ul>
+                </>
+              )}
+
+              {/* USE CASE EXAMPLE */}
+              {hasUseCase && (
+                <>
+                  <h3 class="pt-4 pb-2 text-lg font-bold">
+                    Use Case Example
+                  </h3>
+
+                  {problem.use_case_example.map((item, index) => {
+                    if (item.kind === "paragraph") {
+                      return (
+                        <p
+                          key={index}
+                          class="text-black text-justify mb-2"
+                        >
+                          {item.text}
+                        </p>
+                      );
+                    }
+
+                    if (item.kind === "point") {
+                      return (
+                        <div key={index} class="mb-2">
+                          <span class="font-semibold text-black">
+                            {item.label}:
+                          </span>{" "}
+                          <span class="text-black">
+                            {item.text}
+                          </span>
+                        </div>
+                      );
+                    }
+
+                    return null;
+                  })}
+                </>
+              )}
+
+              {/* PS ID */}
+              {/* <div class="mt-6 text-sm">
+                <strong>ID:</strong> {psId}
+              </div> */}
+
+            </div>
+
+            {/* ===============================
+                RIGHT SIDEBAR
+            ================================ */}
+            <div class="w-full">
+              <div class=" w-full flex items-center justify-center">
+                <div class="echofy-button">
+                  <a
+                    href={applyHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Apply Now
+                    <img
+                      src="assets/images/home1/button-shape.png"
+                      alt=""
+                    />
+                  </a>
+                  <img
+                    class="two"
+                    src="assets/images/home1/button-shape-2.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+      ) : (
+        <p>Problem not found</p>
+      )}
+
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,340 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Countdown from "../components/Countdown.svelte";
+import Navbar from "../components/Navbar.astro";
+import Navbarbottom from "../components/Navbar.svelte";
+
+import Tracks from "../components/Tracks.astro";
+import Why from "../components/Why.astro";
+import Whyget from "../components/Whyget.astro";
+
+
+import { categories } from "../components/categories.js";
+
+
+---
+
+<Layout  title="LEAP | KERALA STARTUP MISSION">
+
+
+<Navbarbottom client:load></Navbarbottom>
+
+
+    <div class="preloader">
+        <img src="assets/images/loader.png" class="preloader__image" alt="">
+    </div><!-- /.preloader -->
+    <div class="page-wrapper">
+       
+
+        <section class="banner-three" >
+            <div class="container">
+                <img src="/img/p/b1.svg" class="banner-three__moc-1 float-bob-y" alt="">
+                <div class="row">
+                    <div class="col-lg-7" >
+                        <div class="banner-three__content">
+                            <h3>GrowthX: Incubation Program</h3>
+                            <p class="text-white pt-4 mb-4 w-full">Bridging the gap from MVP to Market-Ready. Transforming prototypes into high-growth, revenue-generating products.</p>
+                            <a href="#about" class="thm-btn page-scroll">Read More</a><!-- /.thm-btn -->
+                        </div><!-- /.banner-three__content -->
+                    </div><!-- /.col-lg-7 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.banner-three -->
+        <section class="about-four"  >
+            <div class="container" id="about">
+                <div class="row" >
+                    <div class="col-xl-6">
+                        <div class="about-four__box-wrap" >
+                            <div class="row md:mt-20" id="Offerings">
+                                <div class="col-md-6">
+                                    <div class="about-four__box wow flipInY" data-wow-duration="1500ms">
+                                        <div class="about-four__icon">
+                                            <div class="about-four__icon-bubble"></div>
+                                            <!-- /.about-four__icon-bubble -->
+                                            <i class="seolight-icon-start-up"></i>
+                                        </div><!-- /.about-four__icon -->
+                                        <h3><a>Masterclasses</a></h3>
+                                        <p>6 deep-dive sessions with industry veterans.</p>
+                                    </div><!-- /.about-four__box -->
+                                    <div class="about-four__box color-2 wow flipInY" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                        <div class="about-four__icon">
+                                            <div class="about-four__icon-bubble"></div>
+                                            <!-- /.about-four__icon-bubble -->
+                                            <i class="seolight-icon-safe-shield-protection"></i>
+                                        </div><!-- /.about-four__icon -->
+                                        <h3><a>1:1 Mentoring</a></h3>
+                                        <p>
+                                            Personalized guidance from domain experts.
+                                        </p>
+                                    </div><!-- /.about-four__box -->
+
+                                </div><!-- /.col-md-6 -->
+
+                                <div class="col-md-6 mt-10">
+                                    <div class="about-four__box color-3 wow flipInY" data-wow-duration="1500ms" data-wow-delay="200ms">
+                                        <div class="about-four__icon">
+                                            <div class="about-four__icon-bubble"></div>
+                                            <!-- /.about-four__icon-bubble -->
+                                            <i class="seolight-icon-light-bulb"></i>
+                                        </div><!-- /.about-four__icon -->
+                                        <h3><a>Funding assistance</a></h3>
+                                        <p>
+                                            Financial fuel to refine and launch.
+                                        </p>
+                                    </div><!-- /.about-four__box -->
+                                    <div class="about-four__box color-4 wow flipInY" data-wow-duration="1500ms" data-wow-delay="200ms">
+                                        <div class="about-four__icon">
+                                            <div class="about-four__icon-bubble"></div>
+                                            <!-- /.about-four__icon-bubble -->
+                                            <i class="seolight-icon-one-finger-click"></i>
+                                        </div><!-- /.about-four__icon -->
+                                        <h3><a>Market Access</a></h3>
+                                        <p>
+                                            Connections to early adopters and corporate partners.
+                                        </p>
+                                    </div><!-- /.about-four__box -->
+
+                                </div><!-- /.col-md-6 -->
+
+                            </div><!-- /.row -->
+
+                        </div><!-- /.about-four__box-wrap -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-xl-6">
+                        <div class="about-two__content">
+                            <div class="block-title text-left">
+                                <div class="block-title__line"></div><!-- /.block-title__line -->
+                                <h3><span>about</span></h3>
+                                <p>
+                                    GrowthX is a 12-week intensive incubation program by Kerala Startup Mission designed specifically for startups at the product development stage. We provide the mentorship, masterclasses, and grant support needed to convert your Minimum Viable Prototype into a final, marketable product.
+                                </p>
+                            </div><!-- /.block-title text-center -->
+                           
+
+                        </div><!-- /.about-two__content -->
+
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.about-four -->
+
+       
+
+        <section class="service-one service-one__home-three" id="Pillars">
+            <div class="container">
+                <div class="block-title text-center">
+                    <div class="block-title__line"></div><!-- /.block-title__line -->
+                    <h3>The "6 Pillars of Growth"</h3>
+                  
+                </div><!-- /.block-title text-center -->
+
+                <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+                    <div class=" wow fadeInUp" data-wow-duration="1500ms"
+                        data-wow-delay="000ms">
+                        <div class="service-one__single">
+                            <div class="service-one__icon color-1">
+                                <i class="seolight-icon-pie-chart"></i>
+                            </div><!-- /.service-one__icon -->
+                            <h3><a>The Prototype Pivot</a></h3>
+                            <p> Hardening Your Product for the Real World</p>
+
+                        </div><!-- /.service-one__single -->
+                    </div><!-- /.col-lg-3 -->
+                    <div class=" wow fadeInUp" data-wow-duration="1500ms"
+                        data-wow-delay="100ms">
+                        <div class="service-one__single">
+                            <div class="service-one__icon color-2">
+                                <i class="seolight-icon-layers"></i>
+                            </div><!-- /.service-one__icon -->
+                            <h3><a>The Revenue Engine</a></h3>
+                            <p>
+                                Architecting Your GTM & Sales Playbook
+                            </p>
+
+                        </div><!-- /.service-one__single -->
+                    </div><!-- /.col-lg-3 -->
+                    <div class=" wow fadeInUp" data-wow-duration="1500ms"
+                        data-wow-delay="200ms">
+                        <div class="service-one__single">
+                            <div class="service-one__icon color-3">
+                                <i class="seolight-icon-browser"></i>
+                            </div><!-- /.service-one__icon -->
+                            <h3><a>Value Engineering</a></h3>
+                            <p>Mastering Pricing Strategy & Unit Economics</p>
+
+                        </div><!-- /.service-one__single -->
+                    </div><!-- /.col-lg-3 -->
+                    <div class=" wow fadeInUp" data-wow-duration="1500ms"
+                        data-wow-delay="300ms">
+                        <div class="service-one__single">
+                            <div class="service-one__icon color-4">
+                                <i class="seolight-icon-target"></i>
+                            </div><!-- /.service-one__icon -->
+                            <h3><a>The UI/UX Edge</a></h3>
+                            <p>
+                                Designing for Retention & User Friction
+                            </p>
+
+                        </div><!-- /.service-one__single -->
+                    </div><!-- /.col-lg-3 -->
+                    <div class=" wow fadeInUp" data-wow-duration="1500ms"
+                        data-wow-delay="400ms">
+                        <div class="service-one__single">
+                            <div class="service-one__icon color-5">
+                                <i class="seolight-icon-one-finger-click"></i>
+                            </div><!-- /.service-one__icon -->
+                            <h3><a>The Compliance Shield</a></h3>
+                            <p>
+                                Navigating IP, Standards, and Global Certifications
+                            </p>
+
+                        </div><!-- /.service-one__single -->
+                    </div><!-- /.col-lg-3 -->
+                    <div class=" wow fadeInUp" data-wow-duration="1500ms"
+                        data-wow-delay="500ms">
+                        <div class="service-one__single">
+                            <div class="service-one__icon color-6">
+                                <i class="seolight-icon-options"></i>
+                            </div><!-- /.service-one__icon -->
+                            <h3><a>The Capital Leap</a></h3>
+                            <p> Storytelling for Venture Scale</p>
+
+                        </div><!-- /.service-one__single -->
+                    </div><!-- /.col-lg-3 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.service-one -->
+
+
+
+           <section class="faq-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="accrodion-grp" data-grp-name="faq-accrodion-1">
+                            <div class="accrodion ">
+                                <div class="accrodion-title">
+                                    <h4>What is GrowthX?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>
+                                            GrowthX is a 12-week specialized incubation program by Kerala Startup Mission (KSUM) designed to help startups transition from a Minimum Viable Product (MVP) to a market-ready, revenue-generating product.
+                                        </p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div>
+                            <div class="accrodion active">
+                                <div class="accrodion-title">
+                                    <h4>Do I have to attend all the Masterclasses?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>Yes. The 6 Masterclasses are the core of the program. To be eligible for the final grant disbursement and Demo Day, a minimum of 80% attendance is required.</p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div>
+                            <!-- <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>How can I make a change to my application?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do <a
+                                                href="#">eiusmod tempor incididunt</a> ut labore.</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-6">
+                        <div class="accrodion-grp" data-grp-name="faq-accrodion-2">
+                            <div class="accrodion active">
+                                <div class="accrodion-title">
+                                    <h4>What kind of mentoring will I receive?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>
+                                            Beyond the group sessions, you will be paired with a lead mentor for 1:1 sessions to focus on your specific product-market fit challenges.
+                                        </p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div>
+                            <div class="accrodion ">
+                                <div class="accrodion-title">
+                                    <h4>Is the program virtual or physical?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>
+                                             GrowthX follows a hybrid model. Masterclasses are generally virtual, but the Milestone Reviews and Demo Day take place at KSUM's Integrated Startup Complex (ISC).
+                                        </p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div>
+                            <!-- <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>How can I make a change to my application?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do <a
+                                                href="#">eiusmod tempor incididunt</a> ut labore.</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.faq-one -->
+
+
+        <footer class="site-footer site-footer__two">
+
+            <div class="site-footer__bottom">
+                <div class="container text-center">
+                    <p>2026 © All rights reserved by <a href="https://startupmission.kerala.gov.in/" target="_blank">Kerala Startup Mission </a></p>
+                </div><!-- /.container --> 
+            </div><!-- /.site-footer__bottom -->
+        </footer><!-- /.site-footer -->
+    </div><!-- /.page-wrapper -->
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+
+</Layout>
+
+
+<script is:inline>
+  document.querySelectorAll("a.page-scroll").forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = anchor.getAttribute("href");
+      const targetId = href.replace(/^\/?#/, "");
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        e.preventDefault();
+
+        targetElement.scrollIntoView({ behavior: "smooth" });
+
+        history.replaceState(null, null, window.location.pathname);
+      }
+    });
+  });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = hash.replace("#", "");
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+          history.replaceState(null, null, window.location.pathname);
+        }, 100);
+      }
+    }
+  });
+</script>
