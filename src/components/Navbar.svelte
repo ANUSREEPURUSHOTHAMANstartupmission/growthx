@@ -56,14 +56,15 @@
   
   <svelte:window bind:scrollY={y}/>
   
-    <div id="navbar"  class="fixed space-x-4  md:space-x-0 min-h-fit  sm:min-h-0  left-0 justify-center
-   flex items-center mx-auto
+    <div id="navbar"  class="fixed space-x-4  md:space-x-0 min-h-fit w-screen sm:min-h-0  left-0
+   flex sm:items-center
     ease-in-out transition-all transform duration-300
-    z-50 
-          w-screen
-  {scrolled ? ' pt-0 bg-white shadow-md duration-500' : 'md:py-10 bg-transparent'}">
+    z-50  py-2
+           {scrolled ? 'bg-white top-0 shadow-md' : 'bg-white text-black '}
 
-    <div class="w-full  mx-auto  flex justify-between px-4  {scrolled ? 'bg-white   w-screen container' : 'bg-white text-black md:w-8/12 w-full '}">
+
+   ">
+    <div class="w-full container mx-auto  flex justify-between px-4">
      <div class=" md:px-2 m-0 font-medium gap-2 w-fit p-0 rounded-md flex items-center justify-center ">
      
         <a href="/" >
@@ -73,20 +74,15 @@
           class="items-center justify-center  h-12"
         /></a>
         
-      
      </div>
   
-     <main class=" flex  items-start px-7 py-3 my-auto">
+     <main class=" flex  items-start px-7 my-auto">
         <div style="font-family: Museo-Sans, sans-serif;" class="flex my-auto  {scrolled?'':''}">
             <a href="/"  class="md:flex cursor-pointer hidden px-4 py-3  md:py-1 uppercase   text-sm hover:text-green-900">Home</a>
             <a href="/#about"  class="md:flex page-scroll cursor-pointer hidden px-4 py-3  md:py-1 uppercase   text-sm hover:text-green-900">About</a>
-             <a href="/#Offerings"  class="md:flex page-scroll cursor-pointer hidden px-4 py-3  md:py-1 uppercase   text-sm hover:text-green-900">Offerings</a>
-            <a href="/#Pillars"  class="md:flex page-scroll cursor-pointer hidden px-4 py-3  md:py-1 uppercase   text-sm hover:text-green-900">Pillars</a>
-           
+            <a href="/#Offerings"  class="md:flex page-scroll cursor-pointer hidden px-4 py-3  md:py-1 uppercase   text-sm hover:text-green-900">Program Offerings</a>
+            <a href="/#Pillars"  class="md:flex page-scroll cursor-pointer hidden px-4 py-3  md:py-1 uppercase   text-sm hover:text-green-900">Pillars of Growth</a>
 
-            <a href="/#FAQ" class="md:flex page-scroll hidden cursor-pointer  px-4 py-3  md:py-1 uppercase   text-sm hover:text-green-900">FAQ</a>
-            <!-- <a href="/leap-membership"  class="md:flex cursor-pointer hidden px-4 py-3  md:py-1 uppercase   text-sm">Partners</a> -->
-           
         </div>
       
         <div class="flex  items-center justify-center  bg-white my-auto spl_cursor md:hidden flex ">   
@@ -132,16 +128,11 @@
                       <a href="/#About"  class="page-scroll cursor-pointer  font-bold uppercase  ">About</a>
                     </li>
                     <li on:click="{()=> menu_open = !menu_open }" class="px-5 py-2 transform hover:bg-gray-400 transition duration-500 hover:scale-100 md:hidden flex">
-                      <a href="/#Objectives"  class="page-scroll cursor-pointer  font-bold uppercase ">Objectives</a>
+                      <a href="/#Offerings"  class="page-scroll cursor-pointer  font-bold uppercase ">Program Offerings</a>
                     </li> 
                      <li on:click="{()=> menu_open = !menu_open }" class="px-5 py-2 transform hover:bg-gray-400 transition duration-500 hover:scale-100 md:hidden flex">
-                      <a href="/#Challenges"  class="page-scroll cursor-pointer  font-bold uppercase ">Challenges</a>
+                      <a href="/#Pillars"  class="page-scroll cursor-pointer  font-bold uppercase ">Pillars of Growth</a>
                     </li> 
-                     <li on:click="{()=> menu_open = !menu_open }" class="px-5 py-2 transform hover:bg-gray-400 transition duration-500 hover:scale-100 md:hidden flex">
-                      <a href="/#Get_Involved"  class="page-scroll cursor-pointer  font-bold uppercase ">Get Involved</a>
-                    </li>
-  
-                    
             </ul>
         </nav>
     </div>
